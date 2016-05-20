@@ -8,7 +8,7 @@ reduce(Func, First, List) -> lists:foldl(Func, First, List).
 
 new() -> [].
 
-put(Key, Value, Db) -> lists:append(Db, [{Key, Value}]).
+put(Key, Value, Db) -> lists:keystore(Key, 1, Db, {Key, Value}]).
 
 get(Key, Db) -> 
     case lists:keyfind(Key, 1, Db) of
